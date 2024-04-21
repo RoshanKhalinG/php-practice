@@ -1,0 +1,109 @@
+<!DOCTYPE html>  
+
+<html>  
+
+<head>  
+
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+
+<style>  
+
+  body{  
+
+    font-family: Calibri, Helvetica, sans-serif;  
+
+    background-color: grey;  
+
+  }  
+
+  .container {  
+
+    padding: 50px;  
+
+    background-color:  #f7dc6f ;  
+
+  }  
+
+  input[type=text], textarea {  
+
+    width: 100%;  
+
+    padding: 15px;  
+
+    margin: 5px 0 22px 0;  
+
+    display: inline-block;  
+
+    border: none;  
+
+    background: #f1f1f1;  
+
+  }  
+
+  div {  
+
+    padding: 10px 0;  
+
+  }  
+
+  hr {  
+
+    border: 1px solid #f1f1f1;  
+
+    margin-bottom: 25px;  
+
+  }  
+
+  .registerbtn {  
+
+    background-color: #4CAF50;  
+
+    color: white;  
+
+    padding: 16px 20px;  
+
+    margin: 8px 0;  
+
+    border: none;  
+
+    cursor: pointer;  
+
+    width: 100%;  
+
+    opacity: 0.9;  
+
+  }  
+
+  .registerbtn:hover {  
+
+    opacity: 1;  
+
+  }  
+
+</style>  
+
+</head> 
+<body>  
+
+  <form method="post" action="regis.php">
+      <div class="container">
+      <center><h1>Registration Form</h1></center>
+      <hr>
+      <label><b>Fullname</b></label>
+      <input type="text" name="fullname" placeholder="Fullname" required>
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+      <label><b>Age</b></label>
+      <input type="text" placeholder="Enter Age" name="age" required>
+      <div>
+          <label><b>Gender:</b></label><br>
+          <input type="radio" value="Male" name="gender" checked> Male
+          <input type="radio" value="Female" name="gender"> Female
+          <input type="radio" value="Other" name="gender"> Other
+      </div>
+      <label><b>Comment:</b></label>
+      <textarea name="comment" cols="50" rows="2" placeholder="Your Comment" required></textarea>
+      <button type="submit" class="registerbtn">Register</button>
+  </form>
+  </body>
+  </html>
