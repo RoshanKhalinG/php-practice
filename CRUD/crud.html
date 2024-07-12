@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+       *{
+        margin: 0px;
+       }
+            #delete{
+              
+                width: 100%; height: 250px; position: relative;
+            }
+
+#insert{
+    width: 35%; height: 250px; position: absolute;
+}
+
+    #update{
+        width: 35%; height: 250px; float: left; position: relative;margin-left: 35%;
+    }
+#table{
+    border-collapse: collapse;
+}
+
+
+.table{
+    margin-left: 100px;
+}
+
+    </style>
+</head>
+<body>
+
+
+<div id="delete" >
+    <div id="insert"  >
+        <h1>TO INSERT DATA </h1>
+
+        <form action="process_form.php" method="POST">
+    
+            First Name: <input type="text" name="FirstName">
+            <br><br>
+            Last Name: <input type="text" name="LastName">
+            <br><br>
+            Phone Number: <input type="text" name="PhoneNumber">
+            <br><br>
+            
+            <input type="submit" name="submit">
+    
+    
+        </form>
+    </div>
+
+    <div id="update" >
+        <h1>TO UPDATE DATA</h1>
+        <form action="update.php" method="POST">
+    
+            ID:
+            <input type="text" name="Sid">
+            <br><br>
+            First Name :
+            <input type="text" name="FirstName">
+            <br><br>
+            Last Name:
+            <input type="text" name="LastName">
+            <br><br>
+
+            <button type="submit" >Update </button>
+            
+        </form>
+    </div>
+    <h1  >TO DELETE DATA</h1>
+
+
+   
+    <form action="delete.php" method="post">
+
+        ID: <input type="number" name="id">
+        <br><br>
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+
+<br>    
+
+<center>
+
+<div class="table">
+
+ 
+           
+
+    <table border="1" cellpadding="4" id="table">
+        <tr >
+            <th>Id</th>
+           <th>First Name</th>
+           <th>Last Name</th>
+           <th>PhoneNumber</th>
+        </tr>
+        <?php
+        include "serverConnection.php"; 
+     
+        
+        $sql = "SELECT * FROM std_tb";
+        $result = mysqli_query($conn, $sql);
+     
+        if(mysqli_num_rows($result) > 0) {
+           while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>".$row['Sid']."</td>";  
+              echo "<td>" . $row['FirstName'] . "</td>";
+              echo "<td>" . $row['LastName'] . "</td>";
+              echo "<td>" . $row['PhoneNumber'] . "</td>";
+             
+              echo "</tr>";
+           }
+        } 
+        else {
+      
+        }
+        ?>
+        </table>
+    </div>
+</center>
+</body>
+</html>
